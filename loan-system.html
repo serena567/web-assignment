@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Loan System - Vallejo Public Library</title>
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+
+<header>
+    <h1>Vallejo Public Library</h1>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="book-catalog.html">Book Catalog</a></li>
+            <li><a href="loan-system.html">Borrowing System</a></li>
+            <li><a href="FAQs.html">FAQs</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <section id="loan-system">
+        <h2>Loan System</h2>
+        <p><strong>Book Title:</strong> <span id="loan-book-title">Book Title</span></p>
+        <p><strong>Available Copies:</strong> <span id="loan-book-available">Available Copies</span></p>
+        <p><strong>Total Copies:</strong> <span id="loan-book-copies">Total Copies</span></p>
+        <button id="reserve-book-btn">Reserve This Book</button>
+    </section>
+</main>
+
+<footer>
+    <p>Contact Us: <a href="mailto:info@vallejolibrary.org">info@vallejolibrary.org</a></p>
+    <p>Vallejo Public Library, 456 Main St, Vallejo, CA 94590</p>
+    <p>Hours: Mon-Fri 9:00 AM - 6:00 PM | Sat 10:00 AM - 4:00 PM</p>
+</footer>
+
+<script>
+    const books = [
+        { id: 1, title: "Alice's Adventures in Water-land", author

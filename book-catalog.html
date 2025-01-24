@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Book Catalog & Details - Vallejo Public Library</title>
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+
+<header>
+    <h1>Vallejo Public Library</h1>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="book-catalog.html">Book Catalog</a></li>
+            <li><a href="loan-system.html">Borrowing System</a></li>
+            <li><a href="FAQs.html">FAQs</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <section id="book-catalog">
+        <h2>Book Catalog</h2>
+        <ul id="book-list">
+            <!-- List of books will be rendered here dynamically -->
+        </ul>
+    </section>
+</main>
+
+<footer>
+    <p>Contact Us: <a href="mailto:info@vallejolibrary.org">info@vallejolibrary.org</a></p>
+    <p>Vallejo Public Library, 456 Main St, Vallejo, CA 94590</p>
+    <p>Hours: Mon-Fri 9:00 AM - 6:00 PM | Sat 10:00 AM - 4:00 PM</p>
+</footer>
+
+<script>
+// 模拟书籍数据
+const books = [
+    { id: 1, title: "Alice's Adventures in Water-land", author: "Lewis Carroll", genre: "Fantasy", description: "A novel about Alice's adventures in a magical world.", copies: 5, available: 2 },
+    { id: 2, title: "Water Drops", author: "John Doe", genre: "Science", description: "A deep dive into the science of water and its importance.", copies: 3, available: 1 },
+    { id: 3, title: "Water", author: "Jane Smith", genre: "Non-fiction", description: "A book on the global water crisis.", copies: 8, available: 4 }
+];
+
+// 渲染书籍目录和详情
+function renderBookCatalog() {
+    const catalogContainer = document.getElementById('book-list');
+    catalogContainer.innerHTML = '';
+
+    books.forEach(book => {
+        const bookItem = document.createElement('li');
+        
+        const bookTitle = document.createElement('a');
+        bookTitle.href = "#";
+        bookTitle.textContent = book.title;
+        bookTitle.onclick = function() {
+            renderBookDetail(book.id);
+        };
+
+        const bookDetailContainer = document.createElement('div');
+        bookDetailContainer.id = `book-detail-${book.id}`;
+        bookDetailContainer.classList.add('book-detail');
+        bookDetailContainer.style.display = 'none';
+
+        bookItem.appendChild(bookTitle);
+        bookItem.appendChild(bookDetailContainer);
+
+        catalogContainer.appendChild(bookItem);
+    });
+}
+
+// 渲染单本书籍的详细信息
+function renderBookDetail(id) {
+    const book = books.find(b => b.id === id);
+    const bookDetailContainer = document.getElementById(`book-detail-${id}`);
+    
+    if (bookDetailContainer.style.display === 'none') {
+        bookDetailContainer.style.display = 'block';
+        bookDetailContainer.innerHTML = `
+            <h3>Details</h3>
+            <p><strong>Author:</strong> ${book.author}</p>
+            <p><strong>Genre:</strong> ${book.genre}</p>
+            <p><strong>Description:</strong> ${book.description}</p>
+            <p><strong>Number of Copies:</strong> ${book.copies}</p>
+            <p><strong>Available Copies:</strong> ${book.available}</p>
+            <button onclick="reserveBook(${id})">Reserve This Book</button>
+        `;
+    } else {
+        bookDetailContainer.style.display = 'none';
+    }
+}
+
+// 预定书籍
+function reserveBook(id) {
+    const book = books.find(b => b.id === id);
+    if (book.available > 0) {
+        alert(`You have successfully reserved "${book.title}". Please visit the library to pick it up.`);
+        book.available -= 1; // 预定后减少可借数量
+        renderBookCatalog(); // 更新书籍目录和可借数量
+    } else {
+        alert(`Sorry, no copies of "${book.title}" are available for reservation.`);
+    }
+}
+
+// 页面加载时渲染书籍目录
+window.onload = function() {
+    renderBookCatalog();
+};
+</script>
+
+</body>
+</html>

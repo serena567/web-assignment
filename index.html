@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vallejo Public Library</title>
+    <link rel="stylesheet" href="styles/style.css"> <!-- Link to external CSS file -->
+</head>
+<body>
+
+    <nav>
+        <ul class="navbar-container">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <!-- Dropdown Menu for Book-Catalog -->
+            <li class="dropdown">
+                <a href="book-catalog.html">Book-Catalog</a>
+                <div class="dropdown-content">
+                    <a href="tech-books.html">Tech</a>
+                    <a href="art-books.html">Art</a>
+                    <a href="new-arrivals.html">New Arrivals</a>
+                    <a href="book-catalog.html">Browse All Books</a>
+                </div>
+            </li>
+
+            <!-- Dropdown Menu for Borrowing -->
+            <li class="dropdown">
+                <a href="loan-system.html">loan-system</a>
+                <div class="dropdown-content">
+                    <a href="borrowing-guide.html">Borrowing Guide</a>
+                    <a href="loan-system.html">Get Library Card</a>
+                </div>
+            </li>
+
+            <!-- Dropdown Menu for Event&News -->
+            <li class="dropdown">
+                <a href="events&news.html">Event&News</a>
+                <div class="dropdown-content">
+                    <a href="event.html">Event</a>
+                    <a href="news.html">News</a>
+                </div>
+            </li>
+
+            <!-- FAQ Section -->
+            <li class="dropdown">
+                <a href="FAQs.html">FAQs</a>
+                <div class="dropdown-content">
+                    <a href="FAQs.html">Any question? Email Us!</a>
+                </div>
+            </li>
+        </ul>
+    </nav>
+    <div class="library-name">
+        <h1>Vallejo Public Library</h1> <!-- Library Name -->
+        <form action="/search" method="GET">
+            <input type="text" name="query" placeholder="Search for books..." class="search-input">
+            <button type="submit" class="search-button">Search</button>
+        </form>
+    </div>
+
+    <!-- Header section, containing an image -->
+    <header>
+        <img src="images/1.jpg" alt="Vallejo Public Library" width="100%" height="auto">
+    </header>
+
+
+    <!-- Main content section -->
+    <div class="content">
+        <!-- This is where your page content will go -->
+    </div>
+
+    <!-- Footer section -->
+    <footer>
+        <p>Vallejo Public Library, 456 Main St, Vallejo, CA 94590</p>
+        <p>Hours: Mon-Fri 9:00 AM - 6:00 PM | Sat 10:00 AM - 4:00 PM</p>
+        <p>Email: <a href="mailto:info@vallejolibrary.org">info@vallejolibrary.org</a></p>
+        <p>Follow us on social media: 
+            <a href="https://facebook.com/VallejoLibrary">Facebook</a> | 
+            <a href="https://twitter.com/VallejoLibrary">Twitter</a> | 
+            <a href="https://instagram.com/VallejoLibrary">Instagram</a>
+        </p>
+    </footer>
+
+</body>
+</html>
